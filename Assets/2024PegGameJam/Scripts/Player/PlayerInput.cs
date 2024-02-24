@@ -29,7 +29,7 @@ public class PlayerInput : MonoBehaviour
     private void Awake()
     {
         AddKeyCodes(Jump, OnJumpKeyPressed);
-        AddKeyCodes(Dash, OnJumpKeyPressed);
+        AddKeyCodes(Dash, OnDashKeyPressed);
         AddKeyCodes(ShootProjectile, OnShootProjectileKeyPressed);
     }
 
@@ -49,7 +49,7 @@ public class PlayerInput : MonoBehaviour
     {
         foreach (var registered in KeyEventMap)
         {
-            if(Input.GetKeyDown(registered.Key))
+            if (Input.GetKeyDown(registered.Key))
             {
                 registered.Value.Invoke();
             }
