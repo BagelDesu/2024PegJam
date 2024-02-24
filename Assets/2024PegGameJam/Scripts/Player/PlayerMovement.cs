@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,10 +13,13 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [SerializeField]
     private float moveSpeed = 3f;
+    [Space]
+    [SerializeField]
+    private float direction = 1.0f;
 
     [Space]
     [SerializeField]
-    private int maxJumps = 1;
+    private int maxAdditionalJumps = 1;
     [SerializeField]
     private float jumpStrength = 5f;
 
@@ -54,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void Awake()
-    {       
+    {
         keyStrokes = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -62,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         currentDashesCharges = maxDashes;
-        currentJumpCharges = maxJumps;
+        currentJumpCharges = maxAdditionalJumps;
         keyStrokes.OnJumpKeyPressed.AddListener(AppyJump);
         keyStrokes.OnDashKeyPressed.AddListener(ApplyDash);
     }
@@ -110,10 +114,10 @@ public class PlayerMovement : MonoBehaviour
     // Checks if player is hitting ground
     private void CheckGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, groundCheckDistance, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         if (hit.collider != null)
         {
-            currentJumpCharges = maxJumps;
+            currentJumpCharges = maxAdditionalJumps;
         }
     }
 
@@ -137,6 +141,24 @@ public class PlayerMovement : MonoBehaviour
 
         // apply movespeed to our move vector
         moveVector.x *= moveSpeed;
+
+        ApplyDirection();
+    }
+
+    private void ApplyDirection()
+    {
+        float previousDirection = direction;
+        if (moveVector.x != 0)
+        {
+            direction = moveVector.x > 0 ? 1 : -1;
+        }
+
+        if (direction != previousDirection)
+        {
+            bool isFacingForward = direction > 0;
+            gameObject.GetComponent<SpriteRenderer>().flipX = !isFacingForward;
+        }
+
     }
 
     // Jump Logic
