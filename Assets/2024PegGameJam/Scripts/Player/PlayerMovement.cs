@@ -11,9 +11,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float jumpStrength = 5f;
 
+
     private Rigidbody2D playerRigidbody;
     private Vector2 moveVector = new Vector2 (0,0);
     private Vector2 jumpVector = new Vector2 (0,0);
+    private bool isGrounded = false;
 
 
     // Start is called before the first frame update
@@ -38,17 +40,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        moveVector.y = playerRigidbody.velocity.y;
-        moveVector.x *= moveSpeed;
         playerRigidbody.velocity = moveVector;
-
-        jumpVector = new Vector2(0, jumpStrength);
         playerRigidbody.AddForce(jumpVector, ForceMode2D.Impulse);
     }
 
     // Movement Logic
     private void ConsumeMovement()
     {
+        moveVector.x = 0;
+
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             moveVector.x = -1;
@@ -58,16 +58,20 @@ public class PlayerMovement : MonoBehaviour
         {
             moveVector.x = 1;
         }
+
+        moveVector.y = playerRigidbody.velocity.y;
+        moveVector.x *= moveSpeed;
     }
 
     // Jump Logic
     private void ConsumeJump()
     {
+        jumpVector.y = 0;
         // Check if Space or W is pressed
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             // Apply the Jump strength
-
+            jumpVector = new Vector2(0, jumpStrength);
         }
     }
 

@@ -636,7 +636,6 @@ GameObject:
   - component: {fileID: 1981554217}
   - component: {fileID: 1981554218}
   - component: {fileID: 1981554219}
-  - component: {fileID: 1981554220}
   m_Layer: 0
   m_Name: Proto-Bee
   m_TagString: Untagged
@@ -762,15 +761,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1981554220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981554214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5e234d4c9b47e428c2748babf13ff5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
