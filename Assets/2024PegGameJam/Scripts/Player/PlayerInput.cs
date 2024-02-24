@@ -33,7 +33,7 @@ public class PlayerInput : MonoBehaviour
         AddKeyCodes(ShootProjectile, OnShootProjectileKeyPressed);
     }
 
-    void AddKeyCodes(KeyCode[] keyCodes, UnityEvent eventToAssign)
+    private void AddKeyCodes(KeyCode[] keyCodes, UnityEvent eventToAssign)
     {
         if (eventToAssign == null)
             return;
