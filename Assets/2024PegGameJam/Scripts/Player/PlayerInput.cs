@@ -21,7 +21,6 @@ public class PlayerInput : MonoBehaviour
     [NonSerialized]
     public UnityEvent OnDashKeyPressed = new UnityEvent();
 
-    [NonSerialized]
     public UnityEvent OnShootProjectileKeyPressed = new UnityEvent();
 
     private Dictionary<KeyCode, UnityEvent> KeyEventMap = new();

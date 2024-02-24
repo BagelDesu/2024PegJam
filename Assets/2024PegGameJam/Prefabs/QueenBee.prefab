@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4008062281638604093}
   - component: {fileID: 4008062281638604092}
   - component: {fileID: 1981554221}
+  - component: {fileID: 2022246035}
   m_Layer: 0
   m_Name: QueenBee
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 195c46fb19618f545b309a4b95a44cef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,12 +139,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxJumps: 1
-  jumpStrength: 5
+  direction: 1
+  maxAdditionalJumps: 1
+  jumpStrength: 8
   maxDashes: 1
-  dashStrength: 0.21
-  dashDuration: 0.2
-  dashCooldown: 1
+  dashStrength: 85
+  dashDuration: 0.3
+  dashCooldown: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -161,4 +163,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Jump: 200000001101000077000000
-  Dash: 6a000000
+  Dash: 30010000
+  ShootProjectile: 
+  OnShootProjectileKeyPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2022246035}
+        m_TargetAssemblyTypeName: ProjectileSpawner, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2022246035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008062281638604080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56749ca7c2bd9834bb2354ef0d51afe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

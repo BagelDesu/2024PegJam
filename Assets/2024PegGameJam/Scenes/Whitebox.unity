@@ -524,37 +524,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1981554221, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: Dash.Array.data[0]
-      value: 304
-      objectReference: {fileID: 0}
     - target: {fileID: 4008062281638604080, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_Name
       value: Proto-Bee
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604081, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 195c46fb19618f545b309a4b95a44cef, type: 3}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: maxJumps
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: dashCooldown
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: dashDuration
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: dashStrength
-      value: 85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: jumpStrength
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4008062281638604094, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_RootOrder
