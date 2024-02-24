@@ -87,8 +87,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 dashCounter -= Time.deltaTime;
                 // should replace this with forward, but will need to add a flip function
-                dashVector.x = moveVector.x * dashStrength;
-                playerRigidbody.AddForce(dashVector, ForceMode2D.Impulse);
+                dashVector.x = direction * dashStrength;
+                playerRigidbody.AddForce(dashVector, ForceMode2D.Force);
 
                 if (dashCounter < 0)
                 {
@@ -102,6 +102,12 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         ConsumeMovement();
+
+        if (dashCooldownCounter > 0)
+        {
+            dashCooldownCounter -= Time.deltaTime;
+        }
+        Debug.Log(string.Format("    dashCooldownCounter: {0}", dashCooldownCounter));
     }
 
     // Use the move vector to move our character
@@ -118,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
         if (hit.collider != null)
         {
             currentJumpCharges = maxAdditionalJumps;
+            //Debug.Log(string.Format("    currentJumpCharges: {0}", currentJumpCharges));
         }
     }
 
@@ -169,6 +176,8 @@ public class PlayerMovement : MonoBehaviour
         if (currentJumpCharges > 0)
         {
             // Apply the Jump strength
+            Debug.Log(string.Format("    playerRigidbody.velocity: {0}", playerRigidbody.velocity));
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             playerRigidbody.AddForce(jumpVector, ForceMode2D.Impulse);
             currentJumpCharges--;
         }
@@ -176,8 +185,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyDash()
     {
-        isDashing = true;
-        dashCounter = dashDuration;
+        bool isDashOnCooldown = dashCooldownCounter > 0;
+
+        if (!isDashOnCooldown)
+        {
+            isDashing = true;
+            dashCounter = dashDuration;
+            dashCooldownCounter = dashCooldown;
+        }
+        
     }
 
 #if UNITY_EDITOR
