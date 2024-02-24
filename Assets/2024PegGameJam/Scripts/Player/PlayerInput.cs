@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour
     private KeyCode[] Jump;
     [SerializeField]
     private KeyCode[] Dash;
+    [SerializeField]
+    private KeyCode[] ShootProjectile;
 
     [NonSerialized]
     public UnityEvent OnJumpKeyPressed = new UnityEvent();
@@ -19,22 +21,37 @@ public class PlayerInput : MonoBehaviour
     [NonSerialized]
     public UnityEvent OnDashKeyPressed = new UnityEvent();
 
+    [NonSerialized]
+    public UnityEvent OnShootProjectileKeyPressed = new UnityEvent();
+
+    private Dictionary<KeyCode, UnityEvent> KeyEventMap = new();
+
+    private void Awake()
+    {
+        AddKeyCodes(Jump, OnJumpKeyPressed);
+        AddKeyCodes(Dash, OnJumpKeyPressed);
+        AddKeyCodes(ShootProjectile, OnShootProjectileKeyPressed);
+    }
+
+    void AddKeyCodes(KeyCode[] keyCodes, UnityEvent eventToAssign)
+    {
+        if (eventToAssign == null)
+            return;
+
+        foreach (var key in keyCodes)
+        {
+            KeyEventMap.Add(key, eventToAssign);
+        }
+    }
+
     // Could be really bad if this grows into something bigger, but should be fine for now.
     void Update()
     {
-        foreach (KeyCode key in Jump)
+        foreach (var registered in KeyEventMap)
         {
-            if (Input.GetKeyDown(key))
+            if(Input.GetKeyDown(registered.Key))
             {
-                OnJumpKeyPressed?.Invoke();
-            }
-        }
-
-        foreach (KeyCode key in Dash)
-        {
-            if (Input.GetKeyDown(key))
-            {
-                OnDashKeyPressed?.Invoke();
+                registered.Value.Invoke();
             }
         }
     }
