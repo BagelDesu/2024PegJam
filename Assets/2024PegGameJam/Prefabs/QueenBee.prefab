@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4008062281638604094}
   - component: {fileID: 4008062281638604081}
   - component: {fileID: 4008062281638604095}
-  - component: {fileID: 4008062281638604092}
   - component: {fileID: 4008062281638604093}
+  - component: {fileID: 4008062281638604092}
+  - component: {fileID: 1981554221}
   m_Layer: 0
   m_Name: QueenBee
   m_TagString: Untagged
@@ -107,21 +108,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &4008062281638604092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4008062281638604080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea29248558be6f469d8b194c5dd51aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpStrength: 5
+  m_Constraints: 4
 --- !u!58 &4008062281638604093
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,3 +125,40 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4008062281638604092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008062281638604080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea29248558be6f469d8b194c5dd51aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  maxJumps: 1
+  jumpStrength: 5
+  maxDashes: 1
+  dashStrength: 0.21
+  dashDuration: 0.2
+  dashCooldown: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheckDistance: 0.6
+--- !u!114 &1981554221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008062281638604080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d1d2e9e501d04e8d76b0d39f108b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Jump: 200000001101000077000000
+  Dash: 6a000000

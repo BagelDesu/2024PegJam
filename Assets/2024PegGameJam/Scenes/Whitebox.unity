@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &30435961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4008062281638604080, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-  m_PrefabInstance: {fileID: 4008062280731849494}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,20 +517,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4008062281638604094, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
   m_PrefabInstance: {fileID: 4008062280731849494}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1981554221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30435961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc8d1d2e9e501d04e8d76b0d39f108b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Jump: 200000001101000077000000
-  Dash: 6a000000
 --- !u!1001 &4008062280731849494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -546,34 +527,6 @@ PrefabInstance:
     - target: {fileID: 4008062281638604080, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_Name
       value: Proto-Bee
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: maxJumps
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: dashDuration
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: dashStrength
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: jumpStrength
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: groundCheckDistance
-      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4008062281638604094, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_RootOrder
@@ -618,14 +571,6 @@ PrefabInstance:
     - target: {fileID: 4008062281638604094, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604095, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008062281638604095, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
