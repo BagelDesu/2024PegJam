@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9322999, y: 2.49, z: -10}
+  m_LocalPosition: {x: -1.9323001, y: 2.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -393,7 +393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957310690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9322999, y: 2.49, z: -10}
+  m_LocalPosition: {x: -1.9323001, y: 2.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -527,6 +527,14 @@ PrefabInstance:
     - target: {fileID: 4008062281638604080, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_Name
       value: Proto-Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008062281638604081, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 195c46fb19618f545b309a4b95a44cef, type: 3}
+    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: maxJumps
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4008062281638604094, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_RootOrder
