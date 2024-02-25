@@ -24,6 +24,9 @@ public class HealthComponent : MonoBehaviour, IDamageable
 
     private bool canTakeDamage = true;
 
+    [SerializeField]
+    private bool destroyOnZero = true;
+
     private void Start()
     {
         InitializeHealth();
@@ -63,6 +66,10 @@ public class HealthComponent : MonoBehaviour, IDamageable
             if (currentHealth == 0)
             {
                 OnHealthZero?.Invoke();
+                if (destroyOnZero)
+                {
+                    Destroy(gameObject);
+                }
             }
 
             internalinvulnTimer = invulnTime;
