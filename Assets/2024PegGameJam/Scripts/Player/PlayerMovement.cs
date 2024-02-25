@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCooldownCounter -= Time.deltaTime;
         }
-        Debug.Log(string.Format("    dashCooldownCounter: {0}", dashCooldownCounter));
+        // Debug.Log(string.Format("    dashCooldownCounter: {0}", dashCooldownCounter));
     }
 
     // Use the move vector to move our character
@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentJumpCharges > 0)
         {
             // Apply the Jump strength
-            Debug.Log(string.Format("    playerRigidbody.velocity: {0}", playerRigidbody.velocity));
+            // Debug.Log(string.Format("    playerRigidbody.velocity: {0}", playerRigidbody.velocity));
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             playerRigidbody.AddForce(jumpVector, ForceMode2D.Impulse);
             currentJumpCharges--;
