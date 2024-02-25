@@ -270,3 +270,7 @@ MonoBehaviour:
   OnHealthZero:
     m_PersistentCalls:
       m_Calls: []
+  OnHealthInitialized:
+    m_PersistentCalls:
+      m_Calls: []
+  invulnTime: 1

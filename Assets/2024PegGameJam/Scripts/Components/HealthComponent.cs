@@ -15,6 +15,14 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public UnityEvent OnHealthZero = new UnityEvent();
     public UnityEvent<int> OnHealthInitialized = new UnityEvent<int>();
 
+    [SerializeField]
+    private float invulnTime = 5f;
+
+    private float internalinvulnTimer = 0f;
+
+    private bool countdownInvuln = false;
+
+    private bool canTakeDamage = true;
 
     private void Start()
     {
@@ -27,18 +35,39 @@ public class HealthComponent : MonoBehaviour, IDamageable
         OnHealthInitialized.Invoke(currentHealth);
     }
 
+    private void Update()
+    {
+        if (countdownInvuln)
+        {
+            internalinvulnTimer -= Time.deltaTime;
+
+            if (internalinvulnTimer <= 0)
+            {
+                canTakeDamage = true;
+                countdownInvuln = false;
+            }
+        }
+    }
+
     public void MakeDamage(int damage, GameObject instigator)
     {
-        currentHealth -= damage;
-        if (currentHealth < 0)
+        if (canTakeDamage)
         {
-            currentHealth = 0;
-        }
-        OnHealthUpdated?.Invoke(currentHealth);
+            currentHealth -= damage;
+            if (currentHealth < 0)
+            {
+                currentHealth = 0;
+            }
+            OnHealthUpdated?.Invoke(currentHealth);
 
-        if (currentHealth == 0)
-        {
-            OnHealthZero?.Invoke();
+            if (currentHealth == 0)
+            {
+                OnHealthZero?.Invoke();
+            }
+
+            internalinvulnTimer = invulnTime;
+            countdownInvuln = true;
+            canTakeDamage = false;
         }
     }
 
