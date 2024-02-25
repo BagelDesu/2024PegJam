@@ -18,11 +18,6 @@ public class FlowerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            HealthComponent hc = (HealthComponent)collision.gameObject.GetComponent<IDamageable>();
-            if(hc != null)
-            {
-                hc.Heal(healAmount, this.gameObject);
-            }
             OnFlowerPickup?.Invoke();
         }
     }
