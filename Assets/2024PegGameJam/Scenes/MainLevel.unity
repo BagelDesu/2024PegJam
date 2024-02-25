@@ -2337,7 +2337,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2.7550278, y: 0}
   m_SizeDelta: {x: 0.3100121, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -108906,6 +108906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739533890}
+  - component: {fileID: 739533891}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -108928,6 +108929,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739533891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739533889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78e359683f9a7f479afae01db80d031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFlowers: 0
+  currentFlowers: 0
+  OnFlowerAdded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1553635244}
+        m_TargetAssemblyTypeName: FlowersCollected, Assembly-CSharp
+        m_MethodName: UpdateFlowers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnFlowerAddedMax:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1553635244}
+        m_TargetAssemblyTypeName: FlowersCollected, Assembly-CSharp
+        m_MethodName: UpdateFlowers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &742774963
 GameObject:
   m_ObjectHideFlags: 0
@@ -109030,7 +109075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &745530357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122381,6 +122426,7 @@ GameObject:
   - component: {fileID: 1553635241}
   - component: {fileID: 1553635243}
   - component: {fileID: 1553635242}
+  - component: {fileID: 1553635244}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -122507,6 +122553,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553635240}
   m_CullTransparentMesh: 1
+--- !u!114 &1553635244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553635240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deffa91f6e219c44f9d199224afd6afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1553635242}
 --- !u!1 &1554827957
 GameObject:
   m_ObjectHideFlags: 0
@@ -124960,8 +125019,8 @@ RectTransform:
   m_Father: {fileID: 736525408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
