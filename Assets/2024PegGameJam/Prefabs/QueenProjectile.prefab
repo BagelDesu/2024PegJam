@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5096124869362559846}
-  - component: {fileID: 209768751043036186}
   - component: {fileID: -7582674039614595643}
   - component: {fileID: 1876655371394701818}
-  m_Layer: 0
+  - component: {fileID: -8645953288275453209}
+  - component: {fileID: 5931804989999264965}
+  m_Layer: 6
   m_Name: QueenProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,20 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &209768751043036186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6215790634692109978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1682b4dee68e8489398c6506e1ac9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Instigator>k__BackingField: {fileID: 0}
-  <isGravityAffected>k__BackingField: 0
 --- !u!50 &-7582674039614595643
 Rigidbody2D:
   serializedVersion: 4
@@ -64,7 +51,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e80af0c3d156eb348a19213a8d83f02d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -110,14 +97,48 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76beef9fdae7b48468ddf07d0400a374, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 700d428248d57db42a88c9216fe57556, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 31.250002, y: 31.250002}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-8645953288275453209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215790634692109978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1682b4dee68e8489398c6506e1ac9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Instigator>k__BackingField: {fileID: 0}
+  <IsGravityAffected>k__BackingField: 0
+  <InitialDirection>k__BackingField: {x: 0, y: 0}
+  <Damage>k__BackingField: 0
+  <Impulse>k__BackingField: 18
+  <DieDelay>k__BackingField: 1
+--- !u!58 &5931804989999264965
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215790634692109978}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: e80af0c3d156eb348a19213a8d83f02d, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
