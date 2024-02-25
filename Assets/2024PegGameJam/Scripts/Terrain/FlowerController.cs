@@ -10,15 +10,19 @@ public class FlowerController : MonoBehaviour
     //=== Inspector Accessible ===//
     [Header("Flower Properties")]
     [SerializeField]
-    private int healAmount;
-    [SerializeField]
     private UnityEvent OnFlowerPickup = new UnityEvent();
+
+    private void Start()
+    {
+        GameManager.Instance.AddFlowers();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             OnFlowerPickup?.Invoke();
+            GameManager.Instance.increaseCurrentFlower();
         }
     }
 }
