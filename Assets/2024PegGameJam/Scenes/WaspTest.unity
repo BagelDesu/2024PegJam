@@ -793,9 +793,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2022246035, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: <FireRate>k__BackingField
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4008062281638604080, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_Name
       value: Proto-Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: dashCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008062281638604092, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: dashStrength
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4008062281638604094, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: m_RootOrder
