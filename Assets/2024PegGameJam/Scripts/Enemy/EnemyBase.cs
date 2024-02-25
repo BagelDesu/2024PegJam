@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public enum EnemyState
@@ -39,8 +40,7 @@ public abstract class EnemyBase : MonoBehaviour
     private Vector2 moveVector = new Vector2(0, 0);
     private Rigidbody2D myRigidbody;
 
-    public delegate void StateChangeDelegate(EnemyState newState);
-    public StateChangeDelegate OnStateChange;
+    public UnityEvent<EnemyState> OnStateChanged = new UnityEvent<EnemyState>();
 
     protected virtual void Awake()
     {
@@ -152,7 +152,7 @@ public abstract class EnemyBase : MonoBehaviour
     private void ChangeState(EnemyState newState)
     {
         State = newState;
-        OnStateChange?.Invoke(newState);
+        OnStateChanged.Invoke(newState);
     }
 
 }
