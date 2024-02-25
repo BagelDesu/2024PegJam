@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public enum EnemyState
@@ -82,7 +83,8 @@ public abstract class EnemyBase : MonoBehaviour
         {
             //bool isFacingForward = direction > 0;
             //gameObject.GetComponent<SpriteRenderer>().flipX = !isFacingForward;
-            transform.localScale = new Vector3(direction, 1, 1);
+            Vector3 scaleToSet = new Vector3(direction * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.localScale = scaleToSet;
             previousDirection = direction;
         }
 
