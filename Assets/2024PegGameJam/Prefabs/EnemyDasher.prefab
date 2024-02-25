@@ -164,7 +164,7 @@ MonoBehaviour:
   <BoxToLive>k__BackingField: {fileID: 0}
   <PatrolSpeed>k__BackingField: 3
   <ChaseCrawlSpeed>k__BackingField: 1
-  <ChaseDistanceToMaintain>k__BackingField: 3
+  <ChaseDistanceToMaintain>k__BackingField: 5
   <ChaseDistanceTolerance>k__BackingField: 0.2
   OnStateChanged:
     m_PersistentCalls:
@@ -181,7 +181,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <DamageOnTouch>k__BackingField: 51
   <AttackCooldown>k__BackingField: 5
+  <ChargeTimeout>k__BackingField: 1
+  <DashDuration>k__BackingField: 3
+  <DashDistance>k__BackingField: 6
 --- !u!114 &7796127570817550731
 MonoBehaviour:
   m_ObjectHideFlags: 0
