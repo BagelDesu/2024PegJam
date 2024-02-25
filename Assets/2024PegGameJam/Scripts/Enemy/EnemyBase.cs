@@ -151,6 +151,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void ChangeState(EnemyState newState)
     {
+        State = newState;
         OnStateChange?.Invoke(newState);
     }
 
