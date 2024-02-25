@@ -39,6 +39,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private Vector2 moveVector = new Vector2(0, 0);
     private Rigidbody2D myRigidbody;
+    private float direction = 1.0f;
 
     public UnityEvent<EnemyState> OnStateChanged = new UnityEvent<EnemyState>();
 
@@ -65,6 +66,25 @@ public abstract class EnemyBase : MonoBehaviour
             default:
                 break;
         }
+
+        ApplyDirection();
+    }
+
+    private void ApplyDirection()
+    {
+        float previousDirection = direction;
+        if (moveVector.x != 0)
+        {
+            direction = moveVector.x > 0 ? 1 : -1;
+        }
+
+        if (direction != previousDirection)
+        {
+            //bool isFacingForward = direction > 0;
+            //gameObject.GetComponent<SpriteRenderer>().flipX = !isFacingForward;
+            transform.localScale = new Vector3(direction, 1, 1);
+        }
+
     }
 
     //public void Setup()
@@ -114,6 +134,11 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void ChaseCrawlUpdate()
     {
+        if (PlayerToChase == null)
+        {
+            ChangeState(EnemyState.Patrol);
+            return;
+        }
         TryToMaintainChaseDistance();
     }
 
@@ -122,8 +147,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void TryToMaintainChaseDistance()
     {
-        ChangeState(EnemyState.ChaseCrawl);
-
         float playerX = PlayerToChase.transform.position.x;
         float myX = transform.position.x;
 
@@ -131,6 +154,8 @@ public abstract class EnemyBase : MonoBehaviour
         float distanceToPlayerAbs = Mathf.Abs(playerX - myX);
 
         Vector2 directionToPlayer = new Vector2(distanceToPlayer, 0).normalized;
+
+        bool isInsideMaintainTolerance = false;
 
         if (distanceToPlayerAbs > ChaseDistanceToMaintain + ChaseDistanceTolerance)
         {
@@ -142,14 +167,25 @@ public abstract class EnemyBase : MonoBehaviour
         }
         else
         {
-            ChangeState(EnemyState.ReadyToAttack);
             moveVector = Vector2.zero;
+            isInsideMaintainTolerance = true;
+        }
+
+        if (State == EnemyState.ReadyToAttack
+            && !isInsideMaintainTolerance)
+        {
+            ChangeState(EnemyState.ChaseCrawl);
+        }
+        else if (State == EnemyState.ChaseCrawl
+                 && isInsideMaintainTolerance)
+        {
+            ChangeState(EnemyState.ReadyToAttack);
         }
 
         myRigidbody.velocity = new Vector2(moveVector.x * ChaseCrawlSpeed, myRigidbody.velocity.y);
     }
 
-    private void ChangeState(EnemyState newState)
+    protected void ChangeState(EnemyState newState)
     {
         State = newState;
         OnStateChanged.Invoke(newState);
