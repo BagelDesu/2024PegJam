@@ -21,15 +21,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1618917759287879447, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1618917759287879447, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1618917759287879447, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1618917759287879447, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,6 +69,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1618917759287879447, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363464959894310270, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363464959894310270, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
+      propertyPath: invulnTime
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6840597992224222175, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}

@@ -14,6 +14,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
     public UnityEvent<int> OnHealthUpdated = new UnityEvent<int>();
     public UnityEvent OnHealthZero = new UnityEvent();
     public UnityEvent<int> OnHealthInitialized = new UnityEvent<int>();
+    public UnityEvent OnHealthDamaged = new UnityEvent();
 
     [SerializeField]
     private float invulnTime = 5f;
@@ -62,6 +63,7 @@ public class HealthComponent : MonoBehaviour, IDamageable
                 currentHealth = 0;
             }
             OnHealthUpdated?.Invoke(currentHealth);
+            OnHealthDamaged?.Invoke();
 
             if (currentHealth == 0)
             {

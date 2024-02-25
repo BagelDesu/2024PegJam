@@ -6,7 +6,7 @@ public class EnemyDasher : EnemyBase
 {
 
     [field: SerializeField]
-    public int DamageOnTouch { get; set; } = 51;
+    public int DamageOnTouch { get; set; } = 1;
 
     [field: Header("Timeouts")]
     [field: SerializeField]
