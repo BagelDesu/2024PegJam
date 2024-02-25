@@ -13,7 +13,7 @@ public class ProjectileSpawner : MonoBehaviour
     [field: SerializeField]
     private float FireRate { get; set; }
     [field: SerializeField]
-    private float FireDamage { get; set; }
+    private int FireDamage { get; set; }
 
     private PlayerInput inputComponent;
 
@@ -57,7 +57,6 @@ public class ProjectileSpawner : MonoBehaviour
         //GameObject proj = (GameObject)Instantiate(Projectile, FiringSocket.TransformPoint(Vector3.zero), rotation);
 
         GameObject proj = (GameObject)Instantiate(Projectile);
-        Debug.Log("Instantiated!");
         if (proj != null)
         {
             proj.transform.position = FiringSocket.TransformPoint(Vector3.zero);

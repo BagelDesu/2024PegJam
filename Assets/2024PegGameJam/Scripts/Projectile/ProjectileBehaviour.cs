@@ -17,7 +17,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
 
     [field: SerializeField]
-    public float Damage { get; set; }
+    public int Damage { get; set; }
     [field: SerializeField]
     public float Impulse { get; set; }
 
@@ -58,7 +58,6 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject);
 
         if (collision.gameObject == Instigator
             || collision.gameObject.GetComponent<ProjectileBehaviour>() != null)
@@ -84,7 +83,6 @@ public class ProjectileBehaviour : MonoBehaviour
 
     public void Apply()
     {
-        Debug.Log(string.Format("Spawned, position: {0}, rotation: {1}, damage: {2}", transform.position, InitialDirection, Damage));
         Debug.DrawLine(transform.position, transform.position + new Vector3(InitialDirection.x, InitialDirection.y, transform.position.z) * 3, Color.green, 3f);
 
         projectileRigidbody.AddForce(InitialDirection.normalized * Impulse, ForceMode2D.Impulse);

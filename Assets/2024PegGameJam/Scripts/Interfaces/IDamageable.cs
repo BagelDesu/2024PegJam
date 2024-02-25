@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    void MakeDamage(float damage, GameObject instigator);
+    void MakeDamage(int damage, GameObject instigator);
 }

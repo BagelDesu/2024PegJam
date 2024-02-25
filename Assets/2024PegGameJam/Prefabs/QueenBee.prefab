@@ -41,12 +41,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4008062281638604094}
   - component: {fileID: 4008062281638604081}
+  - component: {fileID: 1139216039383124626}
   - component: {fileID: 4008062281638604095}
   - component: {fileID: 4008062281638604093}
   - component: {fileID: 4008062281638604092}
   - component: {fileID: 1981554221}
   - component: {fileID: 2022246035}
-  - component: {fileID: 1139216039383124626}
+  - component: {fileID: 4023391308981882826}
   m_Layer: 7
   m_Name: QueenBee
   m_TagString: Player
@@ -122,6 +123,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1139216039383124626
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008062281638604080}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47bc5e5a2e77f51438676278f55d39f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &4008062281638604095
 Rigidbody2D:
   serializedVersion: 4
@@ -228,25 +250,23 @@ MonoBehaviour:
   <FiringSocket>k__BackingField: {fileID: 7898441470816190201}
   <Projectile>k__BackingField: {fileID: 6215790634692109978, guid: 9f6722855cf3bc347a768328bea99bbe, type: 3}
   <FireRate>k__BackingField: 1
-  <FireDamage>k__BackingField: 20
---- !u!95 &1139216039383124626
-Animator:
-  serializedVersion: 5
+  <FireDamage>k__BackingField: 0
+--- !u!114 &4023391308981882826
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4008062281638604080}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 47bc5e5a2e77f51438676278f55d39f9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3197cfa121634e04b8c924393499dbce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  OnHealthUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthZero:
+    m_PersistentCalls:
+      m_Calls: []

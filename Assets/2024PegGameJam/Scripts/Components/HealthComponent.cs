@@ -1,28 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthComponent : MonoBehaviour, IDamageable
 {
-    [field: SerializeField]
-    public float Health { get; set; }
+    [SerializeField]
+    private int maxHealth = 5;
+    public int currentHealth { get; private set; }
 
-    // todo: events?
+    // gives a 
+    public UnityEvent<int> OnHealthUpdated = new UnityEvent<int>();
+    public UnityEvent OnHealthZero = new UnityEvent();
 
-    public void MakeDamage(float damage, GameObject instigator)
+    public void MakeDamage(int damage, GameObject instigator)
     {
-        Health -= damage;
+        currentHealth -= damage;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        OnHealthUpdated?.Invoke(currentHealth);
+
+        if (currentHealth == 0)
+        {
+            OnHealthZero?.Invoke();
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Heal(int healAmount, GameObject instigator)
     {
-        
-    }
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        OnHealthUpdated?.Invoke(currentHealth);
     }
 }

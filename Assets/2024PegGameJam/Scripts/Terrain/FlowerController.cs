@@ -10,36 +10,20 @@ public class FlowerController : MonoBehaviour
     //=== Inspector Accessible ===//
     [Header("Flower Properties")]
     [SerializeField]
-    private bool isActive = true;
-    public UnityEvent<GameObject> onPlayerTrigger = new UnityEvent<GameObject>();
-
-
-    //=== Internal variables ===//
+    private int healAmount;
     [SerializeField]
-    private GameObject beeParticle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!isActive)
-        {
-            beeParticle.SetActive(false);
-        }
-    }
+    private UnityEvent OnFlowerPickup = new UnityEvent();
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(string.Format("Collided with: {0}",collision.gameObject.tag));
         if(collision.gameObject.tag == "Player")
         {
-            isActive = false;
-            onPlayerTrigger?.Invoke(gameObject);
+            HealthComponent hc = (HealthComponent)collision.gameObject.GetComponent<IDamageable>();
+            if(hc != null)
+            {
+                hc.Heal(healAmount, this.gameObject);
+            }
+            OnFlowerPickup?.Invoke();
         }
     }
 }
