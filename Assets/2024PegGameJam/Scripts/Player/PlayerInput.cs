@@ -43,7 +43,6 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    // Could be really bad if this grows into something bigger, but should be fine for now.
     void Update()
     {
         foreach (var registered in KeyEventMap)
