@@ -13,6 +13,19 @@ public class HealthComponent : MonoBehaviour, IDamageable
     // gives a 
     public UnityEvent<int> OnHealthUpdated = new UnityEvent<int>();
     public UnityEvent OnHealthZero = new UnityEvent();
+    public UnityEvent<int> OnHealthInitialized = new UnityEvent<int>();
+
+
+    private void Start()
+    {
+        InitializeHealth();
+    }
+
+    public void InitializeHealth()
+    {
+        currentHealth = maxHealth;
+        OnHealthInitialized.Invoke(currentHealth);
+    }
 
     public void MakeDamage(int damage, GameObject instigator)
     {
