@@ -97,12 +97,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 700d428248d57db42a88c9216fe57556, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 666573fa8399d1e49881ab873b97b828, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 31.250002, y: 31.250002}
+  m_Size: {x: 0.62500006, y: 0.62500006}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,8 +124,8 @@ MonoBehaviour:
   <IsGravityAffected>k__BackingField: 0
   <InitialDirection>k__BackingField: {x: 0, y: 0}
   <Damage>k__BackingField: 0
-  <Impulse>k__BackingField: 18
-  <DieDelay>k__BackingField: 1
+  <Impulse>k__BackingField: 10
+  <DieDelay>k__BackingField: 0.1
 --- !u!58 &5931804989999264965
 CircleCollider2D:
   m_ObjectHideFlags: 0
