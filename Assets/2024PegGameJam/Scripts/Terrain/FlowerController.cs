@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FlowerController : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class FlowerController : MonoBehaviour
     [Header("Flower Properties")]
     [SerializeField]
     private bool isActive = true;
+    public UnityEvent<GameObject> onPlayerTrigger = new UnityEvent<GameObject>();
 
 
     //=== Internal variables ===//
@@ -36,6 +39,7 @@ public class FlowerController : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             isActive = false;
+            onPlayerTrigger?.Invoke(gameObject);
         }
     }
 }

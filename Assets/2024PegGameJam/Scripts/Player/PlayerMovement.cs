@@ -54,12 +54,12 @@ public class PlayerMovement : MonoBehaviour
     private int currentDashesCharges = 0;
     private int currentJumpCharges = 0;
 
-    private PlayerInput keyStrokes;
+    private PlayerInput inputComponent;
 
 
     private void Awake()
     {
-        keyStrokes = GetComponent<PlayerInput>();
+        inputComponent = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -67,8 +67,8 @@ public class PlayerMovement : MonoBehaviour
     {
         currentDashesCharges = maxDashes;
         currentJumpCharges = maxAdditionalJumps;
-        keyStrokes.OnJumpKeyPressed.AddListener(AppyJump);
-        keyStrokes.OnDashKeyPressed.AddListener(ApplyDash);
+        inputComponent.OnJumpKeyPressed.AddListener(AppyJump);
+        inputComponent.OnDashKeyPressed.AddListener(ApplyDash);
     }
 
     // MUST REMAIN AS FIXED UPDATE
@@ -107,7 +107,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCooldownCounter -= Time.deltaTime;
         }
-        // Debug.Log(string.Format("    dashCooldownCounter: {0}", dashCooldownCounter));
     }
 
     // Use the move vector to move our character
@@ -162,8 +161,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction != previousDirection)
         {
-            bool isFacingForward = direction > 0;
-            gameObject.GetComponent<SpriteRenderer>().flipX = !isFacingForward;
+            //bool isFacingForward = direction > 0;
+            //gameObject.GetComponent<SpriteRenderer>().flipX = !isFacingForward;
+            transform.localScale = new Vector3(direction, 1, 1);
         }
 
     }
