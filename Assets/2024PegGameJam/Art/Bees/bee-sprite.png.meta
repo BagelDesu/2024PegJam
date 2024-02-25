@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,10 +120,10 @@ TextureImporter:
       name: bee-sprite_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 37
-        width: 536
-        height: 698
+        x: 0
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: bee-sprite_1
       rect:
         serializedVersion: 2
-        x: 850
-        y: 37
-        width: 536
-        height: 711
+        x: 750
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: bee-sprite_2
       rect:
         serializedVersion: 2
-        x: 1598
-        y: 38
-        width: 536
-        height: 701
+        x: 1500
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: bee-sprite_3
       rect:
         serializedVersion: 2
-        x: 2349
-        y: 38
-        width: 536
-        height: 705
+        x: 2250
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: bee-sprite_4
       rect:
         serializedVersion: 2
-        x: 3100
-        y: 37
-        width: 536
-        height: 689
+        x: 3000
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: bee-sprite_5
       rect:
         serializedVersion: 2
-        x: 3848
-        y: 37
-        width: 536
-        height: 711
+        x: 3750
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: bee-sprite_6
       rect:
         serializedVersion: 2
-        x: 4599
-        y: 37
-        width: 536
-        height: 702
+        x: 4500
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: bee-sprite_7
       rect:
         serializedVersion: 2
-        x: 5350
-        y: 37
-        width: 536
-        height: 711
+        x: 5250
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: bee-sprite_8
       rect:
         serializedVersion: 2
-        x: 6098
-        y: 37
-        width: 536
-        height: 689
+        x: 6000
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: bee-sprite_9
       rect:
         serializedVersion: 2
-        x: 6849
-        y: 38
-        width: 536
-        height: 710
+        x: 6750
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +330,10 @@ TextureImporter:
       name: bee-sprite_10
       rect:
         serializedVersion: 2
-        x: 7600
-        y: 37
-        width: 536
-        height: 693
+        x: 7500
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: bee-sprite_11
       rect:
         serializedVersion: 2
-        x: 8348
-        y: 37
-        width: 536
-        height: 711
+        x: 8250
+        y: 0
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
