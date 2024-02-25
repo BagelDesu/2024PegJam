@@ -10,4 +10,17 @@ public class WaspAnimationManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
+    public void SwitchAnimation(EnemyState state)
+    {
+        switch(state) {
+            case EnemyState.Patrol:
+                animator.SetTrigger("Idle");
+                break;
+            case EnemyState.PerformAttack:
+                animator.SetTrigger("Attack");
+                break;
+            default: break;
+        }
+    }
 }

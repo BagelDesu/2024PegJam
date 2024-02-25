@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8165619403135190289}
   - component: {fileID: 7239174271574769649}
   - component: {fileID: 213597045457407258}
+  - component: {fileID: 7796127570817550731}
   m_Layer: 0
   m_Name: EnemyDasher
   m_TagString: Untagged
@@ -165,3 +166,31 @@ MonoBehaviour:
   <ChaseCrawlSpeed>k__BackingField: 1
   <ChaseDistanceToMaintain>k__BackingField: 3
   <ChaseDistanceTolerance>k__BackingField: 0.2
+  OnStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7796127570817550731}
+        m_TargetAssemblyTypeName: WaspAnimationManager, Assembly-CSharp
+        m_MethodName: SwitchAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <AttackCooldown>k__BackingField: 5
+--- !u!114 &7796127570817550731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840597992224222175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3824be2f2ef361345801ea35f16b1312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
