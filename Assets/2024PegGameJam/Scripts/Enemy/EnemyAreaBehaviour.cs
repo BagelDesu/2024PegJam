@@ -33,7 +33,9 @@ public class EnemyAreaBehaviour : MonoBehaviour
     {
         // Get the BoxCollider2D component
         boxCollider = GetComponent<BoxCollider2D>();
-        Vector3 boxCenter = new Vector3(boxCollider.offset.x, boxCollider.offset.y, transform.position.z);
+        Vector3 myPosition = transform.position;
+        Vector3 boxCenter = new Vector3(myPosition.x, myPosition.y, transform.position.z);
+        Debug.DrawLine(boxCenter, boxCenter + Vector3.up * 3, Color.green, 3.0f);
 
         enemyInstance = (GameObject)Instantiate(EnemyPrefab, boxCenter, transform.rotation);
         if (enemyInstance != null)

@@ -10,6 +10,8 @@ public enum EnemyState
     ReadyToAttack,
     PerformAttack
 }
+
+[RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public abstract class EnemyBase : MonoBehaviour
 {
     [field: SerializeField]
@@ -37,7 +39,8 @@ public abstract class EnemyBase : MonoBehaviour
     private Vector2 moveVector = new Vector2(0, 0);
     private Rigidbody2D myRigidbody;
 
-
+    public delegate void StateChangeDelegate(EnemyState newState);
+    public StateChangeDelegate OnStateChange;
 
     protected virtual void Awake()
     {
@@ -64,40 +67,49 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
+    //public void Setup()
+    //{
+
+    //}
     public void SetPlayerInsideArea(GameObject player)
     {
         PlayerToChase = player;
-        State = EnemyState.ChaseCrawl;
+        ChangeState(EnemyState.ChaseCrawl);
     }
 
     public void SetPlayerOutsideArea()
     {
         PlayerToChase = null;
-        State = EnemyState.Patrol;
+        ChangeState(EnemyState.Patrol);
     }
 
     public virtual void PatrolUpdate()
     {
-        Vector2 playerPos = transform.position;
+        Vector2 myPos = transform.position;
 
+        //Debug.Log("PatrolUpdate");
         if (moveVector.x == 0)
         {
             // face to the center of the living box
-            moveVector = BoxToLive.offset - playerPos;
+            moveVector = (Vector2)BoxToLive.transform.position - myPos;
             moveVector.y = 0;
             moveVector = moveVector.normalized;
+            if (moveVector.x == 0)
+            {
+                moveVector.x = Random.value < 0.5f ? 1 : -1;
+            }
+            //Debug.Log(string.Format("   moveVector.x == 0, moveVector = {0}", moveVector));
         }
-        else if (playerPos.x > BoxToLive.offset.x + BoxToLive.size.x*0.5f)
+        else if (myPos.x > BoxToLive.transform.position.x + BoxToLive.size.x*0.5f)
         {
             moveVector.x = -1.0f;
         }
-        else if(playerPos.x < BoxToLive.offset.x - BoxToLive.size.x * 0.5f)
+        else if(myPos.x < BoxToLive.transform.position.x - BoxToLive.size.x * 0.5f)
         {
             moveVector.x = 1.0f;
         }
 
-        moveVector *= PatrolSpeed;
-        myRigidbody.velocity = moveVector;
+        myRigidbody.velocity = new Vector2(moveVector.x * PatrolSpeed, myRigidbody.velocity.y);
     }
 
     public virtual void ChaseCrawlUpdate()
@@ -110,7 +122,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void TryToMaintainChaseDistance()
     {
-        State = EnemyState.ChaseCrawl;
+        ChangeState(EnemyState.ChaseCrawl);
 
         float playerX = PlayerToChase.transform.position.x;
         float myX = transform.position.x;
@@ -130,12 +142,16 @@ public abstract class EnemyBase : MonoBehaviour
         }
         else
         {
-            State = EnemyState.ReadyToAttack;
+            ChangeState(EnemyState.ReadyToAttack);
             moveVector = Vector2.zero;
         }
 
-        moveVector *= ChaseCrawlSpeed;
-        myRigidbody.velocity = moveVector;
+        myRigidbody.velocity = new Vector2(moveVector.x * ChaseCrawlSpeed, myRigidbody.velocity.y);
+    }
+
+    private void ChangeState(EnemyState newState)
+    {
+        OnStateChange?.Invoke(newState);
     }
 
 }
