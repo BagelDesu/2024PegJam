@@ -39,7 +39,8 @@ public abstract class EnemyBase : MonoBehaviour
 
     private Vector2 moveVector = new Vector2(0, 0);
     private Rigidbody2D myRigidbody;
-    private float direction = 1.0f;
+    protected float direction = 1.0f;
+    private float previousDirection = 1.0f;
 
     public UnityEvent<EnemyState> OnStateChanged = new UnityEvent<EnemyState>();
 
@@ -72,7 +73,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     private void ApplyDirection()
     {
-        float previousDirection = direction;
         if (moveVector.x != 0)
         {
             direction = moveVector.x > 0 ? 1 : -1;
@@ -83,6 +83,7 @@ public abstract class EnemyBase : MonoBehaviour
             //bool isFacingForward = direction > 0;
             //gameObject.GetComponent<SpriteRenderer>().flipX = !isFacingForward;
             transform.localScale = new Vector3(direction, 1, 1);
+            previousDirection = direction;
         }
 
     }
@@ -179,6 +180,7 @@ public abstract class EnemyBase : MonoBehaviour
         else if (State == EnemyState.ChaseCrawl
                  && isInsideMaintainTolerance)
         {
+            direction = directionToPlayer.x;
             ChangeState(EnemyState.ReadyToAttack);
         }
 

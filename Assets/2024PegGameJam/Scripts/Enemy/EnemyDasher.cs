@@ -39,6 +39,7 @@ public class EnemyDasher : EnemyBase
             float distanceToPlayer = playerX - myX;
 
             Vector2 directionToPlayer = new Vector2(distanceToPlayer, 0).normalized;
+            direction = directionToPlayer.x;
             Vector3 directionToPlayer3d = (Vector3)(directionToPlayer);
 
             StartDashPoint = transform.position;
