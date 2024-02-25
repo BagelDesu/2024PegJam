@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,42 +7,87 @@ using UnityEngine;
 public class EnemyAreaBehaviour : MonoBehaviour
 {
     [field: SerializeField]
+    public GameObject PlayerInside { get; set; }
+    [field: SerializeField]
     public GameObject EnemyPrefab { get; set; }
 
+    private GameObject enemyInstance;
+    private EnemyBase enemyInstanceComponent;
     private BoxCollider2D boxCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         
+
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        boxCollider = GetComponent<BoxCollider2D>();
+    }
+#endif
+
     private void Awake()
     {
         // Get the BoxCollider2D component
         boxCollider = GetComponent<BoxCollider2D>();
+        Vector3 myPosition = transform.position;
+        Vector3 boxCenter = new Vector3(myPosition.x, myPosition.y, transform.position.z);
+        Debug.DrawLine(boxCenter, boxCenter + Vector3.up * 3, Color.green, 3.0f);
+
+        enemyInstance = (GameObject)Instantiate(EnemyPrefab, boxCenter, transform.rotation);
+        if (enemyInstance != null)
+        {
+            enemyInstanceComponent = enemyInstance.GetComponent<EnemyBase>();
+            if (enemyInstanceComponent == null)
+            {
+                Destroy(this);
+                throw new ArgumentException("EnemyAreaBehaviour must have valid EnemyPrefab with EnemyBase-derived component attached");
+            }
+            enemyInstanceComponent.BoxToLive = boxCollider;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //DrawCollider();
+        if (enemyInstance == null)
+        {
+            Destroy(this);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.GetComponent<PlayerMovement>() != null)
+        {
+            PlayerInside = other.gameObject;
+            enemyInstanceComponent.SetPlayerInsideArea(other.gameObject);
+        }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.gameObject.GetComponent<PlayerMovement>() != null)
+        {
+            PlayerInside = null;
+            enemyInstanceComponent.SetPlayerOutsideArea();
+        }
     }
 
 
-    private void OnDrawGizmosSelected()
+//#if UNITY_EDITOR
+    private void OnDrawGizmos()
     {
-        if (boxCollider == null)
-            return;
+        //if (boxCollider == null)
+        //    return;
 
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.blue;
 
         Vector2 size = boxCollider.size*1.1f;
         Vector2 center = boxCollider.offset;
@@ -56,5 +102,6 @@ public class EnemyAreaBehaviour : MonoBehaviour
         Gizmos.DrawLine(bottomRight, bottomLeft);
         Gizmos.DrawLine(bottomLeft, topLeft);
     }
-    
+//#endif
+
 }
