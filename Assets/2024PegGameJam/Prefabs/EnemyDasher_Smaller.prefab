@@ -12,6 +12,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 213597045457407258, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
+      propertyPath: <DamageOnTouch>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 213597045457407258, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
+      propertyPath: <AttackCooldown>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 213597045457407258, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: <ChaseDistanceToMaintain>k__BackingField
       value: 3
       objectReference: {fileID: 0}
@@ -78,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 4363464959894310270, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: invulnTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573358021680965293, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
+      propertyPath: m_Pitch
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 6840597992224222175, guid: a2b732ffb66285d4493db5873eb9adab, type: 3}
       propertyPath: m_Name

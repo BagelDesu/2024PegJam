@@ -8,6 +8,10 @@ public class ProjectileSpawner : MonoBehaviour
 {
     [field: SerializeField]
     public Transform FiringSocket { get; set; }
+
+    [SerializeField]
+    private Transform FiringDirectionSocket;
+
     [field: SerializeField]
     public GameObject Projectile { get; set; }
     [field: SerializeField]
@@ -63,7 +67,7 @@ public class ProjectileSpawner : MonoBehaviour
 
             ProjectileBehaviour projBehavior = proj.GetComponent<ProjectileBehaviour>();
             projBehavior.Instigator = gameObject;
-            projBehavior.InitialDirection = GetDirectionToFromPositionToMouse(transform.position);
+            projBehavior.InitialDirection = GetDirectionToFromPositionToMouse(transform.position, FiringDirectionSocket.position);
             projBehavior.Damage = FireDamage;
             projBehavior.Apply();
         }
@@ -75,11 +79,11 @@ public class ProjectileSpawner : MonoBehaviour
 
     }
 
-    private static Vector2 GetDirectionToFromPositionToMouse(Vector3 objectPosition)
+    private static Vector2 GetDirectionToFromPositionToMouse(Vector3 objectPosition, Vector3 firingDirection)
     {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 direction = (mouseWorldPosition - objectPosition).normalized;
+        //Vector3 mousePosition = Input.mousePosition;
+        //Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector2 direction = (firingDirection - objectPosition).normalized;
         //Debug.Log(string.Format("GetDirectionToFromPositionToMouse: direction: {0}, mouseWorldPosition: {1}, objectPosition: {2}"
         //    , direction, mouseWorldPosition, objectPosition));
         return direction;

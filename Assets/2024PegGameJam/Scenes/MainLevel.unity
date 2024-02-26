@@ -117949,8 +117949,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 95dde16f27ee06f43984d554263f3890, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.41
-  m_Pitch: 0.69
+  m_Volume: 0.44
+  m_Pitch: 0.42
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -122643,6 +122643,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1981554221, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: Jump.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981554221, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: Dash.Array.data[0]
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981554221, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: Jump.Array.data[0]
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981554221, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: Jump.Array.data[1]
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981554221, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
+      propertyPath: ShootProjectile.Array.data[0]
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 2022246035, guid: 75fed0e82ee2c2f478c4aa59484fdb5f, type: 3}
       propertyPath: <FireDamage>k__BackingField
       value: 1
