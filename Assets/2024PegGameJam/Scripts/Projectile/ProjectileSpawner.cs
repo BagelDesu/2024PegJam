@@ -21,6 +21,9 @@ public class ProjectileSpawner : MonoBehaviour
 
     private PlayerInput inputComponent;
 
+    private float fireCooldown = 0f;
+
+    private bool canFire = true;
 
     void Start()
     {
@@ -53,12 +56,24 @@ public class ProjectileSpawner : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!canFire)
+        {
+            fireCooldown -= Time.deltaTime;
+            if (fireCooldown <= 0)
+            {
+                canFire = true;
+            }
+        }
+    }
+
     public void ApplyShoot()
     {
-        Debug.Log("ApplyShoot");
-        //Vector3 direction = (FiringSocket.TransformPoint(Vector3.zero) - transform.position).normalized;
-        //Quaternion rotation = Quaternion.FromToRotation(Vector3.up, direction);
-        //GameObject proj = (GameObject)Instantiate(Projectile, FiringSocket.TransformPoint(Vector3.zero), rotation);
+        if (!canFire)
+        {
+            return;
+        }
 
         GameObject proj = (GameObject)Instantiate(Projectile);
         if (proj != null)
@@ -67,25 +82,18 @@ public class ProjectileSpawner : MonoBehaviour
 
             ProjectileBehaviour projBehavior = proj.GetComponent<ProjectileBehaviour>();
             projBehavior.Instigator = gameObject;
-            projBehavior.InitialDirection = GetDirectionToFromPositionToMouse(transform.position, FiringDirectionSocket.position);
+            projBehavior.InitialDirection = GetFireDirection(transform.position, FiringDirectionSocket.position);
             projBehavior.Damage = FireDamage;
             projBehavior.Apply();
         }
-        //proj.transform.position = projectileSpawnLocation.position;
 
-      
-        // cast proj into projectileBehaviour
-        // perform behaviour
-
+        canFire = false;
+        fireCooldown = FireRate;
     }
 
-    private static Vector2 GetDirectionToFromPositionToMouse(Vector3 objectPosition, Vector3 firingDirection)
+    private static Vector2 GetFireDirection(Vector3 objectPosition, Vector3 firingDirection)
     {
-        //Vector3 mousePosition = Input.mousePosition;
-        //Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         Vector2 direction = (firingDirection - objectPosition).normalized;
-        //Debug.Log(string.Format("GetDirectionToFromPositionToMouse: direction: {0}, mouseWorldPosition: {1}, objectPosition: {2}"
-        //    , direction, mouseWorldPosition, objectPosition));
         return direction;
     }
 
